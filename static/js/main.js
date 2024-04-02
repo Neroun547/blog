@@ -48,7 +48,8 @@ wrapperSearchBtn.addEventListener("click", async function () {
                 response.articles[i].name,
                 response.articles[i].theme,
                 response.articles[i].date,
-                false
+                false,
+                response.articles[i].file_name
             ));
         }
     }
@@ -93,7 +94,8 @@ async function loadMore() {
             response.articles[i].name,
             response.articles[i].theme,
             response.articles[i].date,
-            false
+            false,
+            response.articles[i].file_name
         ));
     }
     if(!response.loadMore) {

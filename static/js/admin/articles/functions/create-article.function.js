@@ -1,4 +1,4 @@
-export function createArticleFunction(id, name, theme, date, admin) {
+export function createArticleFunction(id, name, theme, date, admin, fileName) {
 
     if(admin) {
         const wrapperArticlesItem = document.createElement("div");
@@ -43,6 +43,7 @@ export function createArticleFunction(id, name, theme, date, admin) {
 
         return wrapperArticlesItem;
     } else {
+        console.log(fileName)
         const wrapperArticlesItem = document.createElement("div");
         wrapperArticlesItem.classList.add("wrapper__articles-item");
         wrapperArticlesItem.classList.add("mt-20");
@@ -60,7 +61,7 @@ export function createArticleFunction(id, name, theme, date, admin) {
         wrapperArticlesItemFooter.classList.add("wrapper__articles-item-footer");
 
         const readLink = document.createElement("a");
-        readLink.setAttribute("href", "/admin/articles/edit/" + id);
+        readLink.setAttribute("href", "/articles/" + fileName);
         readLink.innerHTML = "Читати";
 
         wrapperArticlesItemFooter.appendChild(readLink);
