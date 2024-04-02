@@ -39,6 +39,8 @@ export class ArticlesController {
 
     @Get(":file_name")
     async getArticle(@Param("file_name") fileName: string, @Res() res: Response) {
-        res.render("articles/uploaded-articles/" + fileName);
+        res.render("articles/uploaded-articles/" + fileName, {
+            styles: ["/css/articles/article.css"]
+        });
     }
 }
