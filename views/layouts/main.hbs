@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    {{>head}}
+<body>
+    <div class="wrapper__main">
+        {{#if admin}}
+
+        {{else}}
+            <div class="wrapper__nav">
+                <nav>
+                    <a href="/">Головна</a>
+                    <a href="/gallery">Галерея</a>
+                </nav>
+            </div>
+        {{/if}}
+        <div class="wrapper__content">
+            {{{ body }}}
+        </div>
+        <footer class="footer">
+            <span>www.gosha.app</span>
+        </footer>
+    </div>
+
+    {{#each scripts}}
+        <script src="{{this}}" type="module"></script>
+    {{/each}}
+</body>
+</html>

@@ -1,0 +1,21 @@
+.wrapper__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    flex: 1;
+    min-height: 50px;
+    max-height: 50px;
+}
+
+.wrapper__nav nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+}
+
+.wrapper__nav nav a {
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,0 +1,21 @@
+<h2 class="blog-description">{{blog_description}}</h2>
+<div class="wrapper__search">
+    <input type="text" placeholder="Пошук статті за назвою:" class="wrapper__search-input">
+    <button class="wrapper__search-btn">Пошук</button>
+</div>
+<div class="wrapper__articles mt-50 mb-50">
+    {{#each articles}}
+        <div class="wrapper__articles-item mt-20">
+            <h2>Назва: {{this.name}}</h2>
+            <h3>Тема: {{this.theme}}</h3>
+            <h3>Дата публікації: {{this.date}}</h3>
+
+            <a href="/articles/{{this.file_name}}">Читати</a>
+        </div>
+    {{/each}}
+</div>
+{{#if loadMore}}
+    <button class="load-more-btn mt-50 mb-50">Завантажити більше</button>
+{{/if}}
+
+

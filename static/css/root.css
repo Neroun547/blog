@@ -1,0 +1,40 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+.wrapper__main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.wrapper__content {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    flex: 20;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: #fff;
+    background-color: #000;
+    min-height: 50px;
+    max-height: 50px;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.mb-50 {
+    margin-bottom: 50px !important;
+}

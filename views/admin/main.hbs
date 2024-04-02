@@ -1,0 +1,13 @@
+<div class="wrapper__modules">
+    <a href="/admin/articles/">Статті</a>
+    <a href="/admin/gallery">Фотографії</a>
+    <a href="/admin/exit">
+        <button class="exit-btn">Вийти</button>
+    </a>
+</div>
+<h2 class="edit-blog-description-form-logo">Редагувати опис блогу:</h2>
+<form action="/admin/settings/save-blog-description" method="POST" class="edit-blog-description-form">
+    <input type="text" placeholder="Опис блогу:" name="description" value="{{blog_description}}" required>
+    <button>Зберегти</button>
+</form>
+

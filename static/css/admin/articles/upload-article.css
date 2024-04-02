@@ -1,0 +1,27 @@
+.wrapper__textarea {
+    display: block;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.wrapper__textarea-upload-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.wrapper__textarea form {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper__textarea form input {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-bottom: 15px;
+}

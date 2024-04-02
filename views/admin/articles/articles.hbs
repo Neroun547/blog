@@ -1,0 +1,21 @@
+<a href="/admin/articles/upload-article" class="upload-article-link">
+    <button>Завантажити статтю</button>
+</a>
+
+<div class="wrapper__articles mt-50 mb-50">
+    {{#each articles}}
+        <div class="wrapper__articles-item mt-20">
+            <h2>Назва: {{this.name}}</h2>
+            <h3>Тема: {{this.theme}}</h3>
+            <h3>Дата публікації: {{this.date}}</h3>
+
+            <div class="wrapper__articles-item-footer">
+                <a href="/admin/articles/edit/{{this.id}}">Редагувати</a>
+                <button class="delete-article-btn" id="{{this.id}}">Видалити</button>
+            </div>
+        </div>
+    {{/each}}
+</div>
+{{#if loadMore}}
+    <button class="load-more-btn mt-50 mb-50">Завантажити більше</button>
+{{/if}}

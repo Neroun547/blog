@@ -1,0 +1,12 @@
+.wrapper__articles-item h2 {
+    margin-top: 0 !important;
+}
+
+.wrapper__articles-item {
+    background-color: #ECECECFA;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}

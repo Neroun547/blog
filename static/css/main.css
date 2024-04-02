@@ -1,0 +1,21 @@
+.wrapper__search {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wrapper__search input {
+    max-width: 500px;
+    width: 100%;
+}
+
+.wrapper__search button {
+    margin-left: 5px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.blog-description {
+    text-align: center;
+    margin-top: 50px;
+}

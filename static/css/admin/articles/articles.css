@@ -1,0 +1,26 @@
+.upload-article-link {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.upload-article-link button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.delete-article-btn {
+    background-color: darkred;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.wrapper__articles-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}

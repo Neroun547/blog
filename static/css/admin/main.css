@@ -1,0 +1,44 @@
+.wrapper__modules {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.wrapper__modules a {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.exit-btn {
+    background-color: darkred;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 120px;
+}
+
+.edit-blog-description-form-logo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.edit-blog-description-form {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.edit-blog-description-form input {
+    width: 75%;
+}
+
+.edit-blog-description-form button {
+    cursor: pointer;
+}
