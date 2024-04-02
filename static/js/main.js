@@ -10,9 +10,11 @@ let take = 10;
 let skip = 10;
 let filtersName = "";
 
-loadMoreBtn.addEventListener("click", async function () {
-    await loadMore();
-});
+if(loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", async function () {
+        await loadMore();
+    });
+}
 
 wrapperSearchBtn.addEventListener("click", async function () {
     skip = 0;
