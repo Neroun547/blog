@@ -19,3 +19,9 @@
     text-decoration: none;
     color: #fff;
 }
+
+@media screen and (max-width: 500px) {
+    .wrapper__nav-main-page-link {
+        margin-left: 15px;
+    }
+}

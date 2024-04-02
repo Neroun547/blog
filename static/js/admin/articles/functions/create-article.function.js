@@ -1,4 +1,5 @@
 export function createArticleFunction(id, name, theme, date, admin) {
+
     if(admin) {
         const wrapperArticlesItem = document.createElement("div");
         wrapperArticlesItem.classList.add("wrapper__articles-item");
@@ -21,6 +22,13 @@ export function createArticleFunction(id, name, theme, date, admin) {
         editLink.innerHTML = "Редагувати";
 
         const deleteArticleBtn = document.createElement("button");
+        deleteArticleBtn.addEventListener("click", function () {
+            fetch("/admin/articles/" + id, {
+                method: "DELETE"
+            });
+
+            deleteArticleBtn.parentElement.parentElement.remove();
+        });
         deleteArticleBtn.classList.add("delete-article-btn");
         deleteArticleBtn.setAttribute("id", id);
         deleteArticleBtn.innerHTML = "Видалити";
