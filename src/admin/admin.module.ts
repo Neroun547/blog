@@ -4,9 +4,10 @@ import { AdminController } from "./admin.controller";
 import {ArticlesModuleAdmin} from "./articles/articles.module";
 import {ArticlesModuleDb} from "../../db/articles/articles.module";
 import {SettingsModuleDb} from "../../db/settings/settings.module";
+import { GalleryModuleAdmin } from "./gallery/gallery.module";
 
 @Module({
-    imports: [AuthModule, ArticlesModuleAdmin, ArticlesModuleDb, SettingsModuleDb],
+    imports: [AuthModule, ArticlesModuleAdmin, ArticlesModuleDb, SettingsModuleDb, GalleryModuleAdmin],
     controllers: [AdminController]
 })
 export class AdminModule {}

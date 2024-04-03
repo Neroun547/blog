@@ -1,0 +1,38 @@
+.wrapper__modal-photo-gallery {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+}
+
+.wrapper__modal-photo-gallery-right-side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.delete-publication-btn {
+    background-color: darkred;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.wrapper__modal-photo-gallery-description {
+    width: 100%;
+}
+
+.wrapper__modal-photo-gallery img {
+    width: auto;
+    max-height: 600px;
+    min-height: 300px;
+}

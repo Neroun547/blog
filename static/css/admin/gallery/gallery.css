@@ -1,0 +1,80 @@
+.upload-photo-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 60%;
+}
+
+.upload-photo-form input {
+    margin-top: 20px;
+}
+
+.upload-photo-form button {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.upload-photo-input {
+    cursor: pointer;
+}
+
+.wrapper__publications {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 50px;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 100%;
+    grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+    margin-bottom: 50px;
+    justify-items: center;
+}
+
+.wrapper__publications-item {
+    position: relative;
+    width: 25%;
+    min-width: 350px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+.wrapper__publications-item:hover {
+    background-color: rgba(230,230,230,0.98);
+}
+
+.wrapper__publications-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper__publication-item-filter {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.53);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.wrapper__publications-item-about-span {
+    text-decoration: underline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    display: none;
+}
+
+.load-more-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    cursor: pointer;
+}
+

@@ -1,4 +1,9 @@
-<div class="wrapper__publications mt-300">
+<form class="upload-photo-form" method="POST" action="/admin/gallery/" enctype="multipart/form-data">
+    <input type="file" class="upload-photo-input" name="file" accept="image/png, image/jpeg, image/png"/>
+    <input type="text" placeholder="Опис:" name="description">
+    <button type="submit">Завантажити</button>
+</form>
+<div class="wrapper__publications">
     {{#each publications}}
         <div class="wrapper__publications-item">
             <div class="wrapper__publication-item-filter"></div>

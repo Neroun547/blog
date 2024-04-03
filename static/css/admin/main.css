@@ -3,11 +3,20 @@
     flex-direction: column;
     margin: 0 auto;
     margin-top: 50px;
+    width: 100%;
 }
 
 .wrapper__modules a {
-    margin-top: 20px;
     font-size: 20px;
+    background-color: #ececec;
+    text-align: center;
+    border-radius: 5px;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 30px;
 }
 
 .exit-btn {
@@ -17,7 +26,6 @@
     font-size: 20px;
     border-radius: 5px;
     color: #fff;
-    margin-top: 20px;
     cursor: pointer;
     width: 120px;
 }
@@ -28,11 +36,16 @@
 }
 
 .edit-blog-description-form {
-    display: block;
+    display: flex;
     margin: 0 auto;
     margin-top: 50px;
     max-width: 800px;
     width: 100%;
+    justify-content: space-between;
+}
+
+.edit-blog-description-form button {
+    width: 20%;
 }
 
 .edit-blog-description-form input {
@@ -41,4 +54,9 @@
 
 .edit-blog-description-form button {
     cursor: pointer;
+}
+
+.exit-btn-link {
+    background-color: #fff !important;
+    width: min-content !important;
 }

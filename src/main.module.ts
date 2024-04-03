@@ -14,6 +14,8 @@ import {ArticlesModule} from "./articles/articles.module";
 import {Settings} from "../db/settings/settings.entity";
 import {SettingsModuleAdmin} from "./admin/settings/settings.module";
 import {SettingsModuleDb} from "../db/settings/settings.module";
+import {GalleryModuleAdmin} from "./admin/gallery/gallery.module";
+import {Gallery} from "../db/gallery/gallery.entity";
 
 @Module({
   imports: [
@@ -27,7 +29,7 @@ import {SettingsModuleDb} from "../db/settings/settings.module";
           port: Number(process.env.DB_PORT),
           password: process.env.DB_PASSWORD,
           type: "mysql",
-          entities: [Users, Articles, Settings]
+          entities: [Users, Articles, Settings, Gallery]
       }),
       AdminModule,
       AuthModule,
@@ -35,11 +37,13 @@ import {SettingsModuleDb} from "../db/settings/settings.module";
       ArticlesModule,
       SettingsModuleAdmin,
       SettingsModuleDb,
+      GalleryModuleAdmin,
       RouterModule.register([
           { path: "/admin", module: AdminModule, children: [
                   { path: "auth", module: AuthModule },
                   { path: "articles", module: ArticlesModuleAdmin },
-                  { path: "settings", module: SettingsModuleAdmin }
+                  { path: "settings", module: SettingsModuleAdmin },
+                  { path: "gallery", module: GalleryModuleAdmin }
               ]
           },
           {
