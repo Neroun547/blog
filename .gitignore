@@ -37,3 +37,5 @@ lerna-debug.log*
 .env
 
 /views/articles/uploaded-articles
+
+/static/uploaded-photo
