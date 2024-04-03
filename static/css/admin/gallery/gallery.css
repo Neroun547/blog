@@ -31,14 +31,15 @@
     grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
     margin-bottom: 50px;
     justify-items: center;
+    max-height: 100%;
 }
 
 .wrapper__publications-item {
     position: relative;
     width: 25%;
-    min-width: 350px;
-    background-color: #f4f4f4;
+    min-width: 400px;
     cursor: pointer;
+    height: fit-content;
 }
 
 .wrapper__publications-item:hover {
@@ -76,5 +77,11 @@
     margin: 0 auto;
     padding: 5px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+    .wrapper__publications-item {
+        min-width: 250px;
+    }
 }
 

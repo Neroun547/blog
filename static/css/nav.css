@@ -18,10 +18,7 @@
 .wrapper__nav nav a {
     text-decoration: none;
     color: #fff;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-@media screen and (max-width: 500px) {
-    .wrapper__nav-main-page-link {
-        margin-left: 15px;
-    }
-}

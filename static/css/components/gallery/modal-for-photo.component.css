@@ -35,4 +35,26 @@
     width: auto;
     max-height: 600px;
     min-height: 300px;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper__modal-photo-gallery {
+        flex-direction: column;
+    }
+    .wrapper__modal-photo-gallery h2 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .wrapper__publications {
+        justify-items: left;
+    }
+    .delete-publication-btn {
+        width: 89%;
+    }
+    .wrapper__modal-photo-gallery h2  {
+        font-size: 12px;
+    }
 }
