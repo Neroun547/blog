@@ -5,6 +5,15 @@ export function createModalForGalleryPhoto(parent, admin, imgSrc, description, d
     const wrapperRightSide = document.createElement("div");
     wrapperRightSide.classList.add("wrapper__modal-photo-gallery-right-side");
 
+    const closeModalBtn = document.createElement("button");
+    closeModalBtn.innerHTML = "&times;";
+    closeModalBtn.classList.add("wrapper__modal-photo-gallery-close-btn");
+
+    closeModalBtn.addEventListener("click", function () {
+        wrapperModal.remove();
+    });
+    wrapperRightSide.appendChild(closeModalBtn);
+
     const wrapperModalDescription = document.createElement("div");
     wrapperModalDescription.classList.add("wrapper__modal-photo-gallery-description");
     wrapperModalDescription.innerHTML = description;

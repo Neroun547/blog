@@ -14,7 +14,7 @@
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
-    margin: 15px;
+    padding: 15px;
 }
 
 .delete-publication-btn {
@@ -33,17 +33,35 @@
 
 .wrapper__modal-photo-gallery img {
     width: auto;
-    max-height: 600px;
+    max-width: 700px;
     min-height: 300px;
     object-fit: contain;
 }
 
-@media screen and (max-width: 800px) {
+.wrapper__modal-photo-gallery-close-btn {
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    display: block;
+    cursor: pointer;
+    background: transparent;
+}
+
+@media screen and (max-width: 1200px) {
     .wrapper__modal-photo-gallery {
         flex-direction: column;
     }
     .wrapper__modal-photo-gallery h2 {
         font-size: 14px;
+    }
+    .wrapper__modal-photo-gallery {
+        padding: 15px;
+    }
+    .wrapper__modal-photo-gallery-right-side {
+        padding: 0;
+    }
+    .wrapper__modal-photo-gallery-close-btn {
+        margin-top: 15px;
     }
 }
 
