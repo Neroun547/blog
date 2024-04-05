@@ -17,5 +17,11 @@ export class Articles implements ArticlesInterface {
 
     @Property()
     date: Date | string;
+
+    @Property()
+    likes: number;
+
+    @Property()
+    dislikes: number;
 }
 

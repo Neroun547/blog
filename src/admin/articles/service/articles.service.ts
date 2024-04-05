@@ -25,7 +25,9 @@ export class ArticlesServiceAdmin {
             name: data.name,
             theme: data.theme,
             file_name: fileNameHash + ".hbs",
-            date: moment().format("YYYY-MM-DD HH:mm:ss")
+            date: moment().format("YYYY-MM-DD HH:mm:ss"),
+            likes: 0,
+            dislikes: 0
         });
     }
     async updateArticleById(id: number, data: UploadArticleInterface) {

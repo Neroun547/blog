@@ -4,4 +4,6 @@ export interface ArticlesInterface {
     theme: string;
     file_name: string;
     date: Date | string;
+    likes: number;
+    dislikes: number;
 }

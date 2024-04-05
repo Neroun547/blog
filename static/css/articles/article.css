@@ -7,3 +7,41 @@ iframe {
     width: auto;
     height: auto;
 }
+
+.wrapper__comments-grade {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.wrapper__comments-like {
+    width: max-content;
+}
+
+.wrapper__comments-dislike {
+    width: max-content;
+}
+
+.wrapper__comments-like-btn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.wrapper__comments-like-btn-liked {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: rgba(68,127,215, 1);
+    border-radius: 5px;
+}
+
+.wrapper__comments-dislike-btn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+}

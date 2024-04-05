@@ -1,11 +1,15 @@
-import {Controller, Get, Param, ParseIntPipe, Query, Res} from "@nestjs/common";
+import {Controller, Delete, Get, Param, ParseIntPipe, Patch, Query, Req, Res} from "@nestjs/common";
 import {ArticlesServiceDb} from "../../db/articles/articles.service";
-import {Response} from "express";
+import {Response, Request} from "express";
+import {ArticlesService} from "./service/articles.service";
 const moment = require("moment");
 
 @Controller()
 export class ArticlesController {
-    constructor(private articlesServiceDb: ArticlesServiceDb) {}
+    constructor(
+        private articlesServiceDb: ArticlesServiceDb,
+        private articlesService: ArticlesService
+    ) {}
 
     @Get("load-more")
     async loadMoreArticles(
@@ -38,9 +42,38 @@ export class ArticlesController {
     }
 
     @Get(":file_name")
-    async getArticle(@Param("file_name") fileName: string, @Res() res: Response) {
+    async getArticle(@Req() req: Request, @Param("file_name") fileName: string, @Res() res: Response) {
+        const { likes, dislikes, userAlreadySetDislike, userAlreadySetLike } = await this.articlesService.getInfoAboutLikesAndDislikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+
         res.render("articles/uploaded-articles/" + fileName, {
-            styles: ["/css/articles/article.css"]
+            styles: ["/css/articles/article.css"],
+            layout: "article-layout",
+            scripts: ["/js/articles/article.js"],
+            fileName: fileName,
+            likes: likes,
+            dislikes: dislikes,
+            userAlreadySetDislike: userAlreadySetDislike,
+            userAlreadySetLike: userAlreadySetLike
         });
+    }
+
+    @Patch(":file_name/add-like")
+    async addLikes(@Req() req: Request, @Param("file_name") fileName: string) {
+        await this.articlesService.incrementLikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+
+        return;
+    }
+
+    @Delete(":file_name/remove-like")
+    async removeLike(@Req() req: Request, @Param("file_name") fileName: string) {
+        await this.articlesService.decrementLikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+
+        return;
+    }
+
+
+    @Patch(":file_name/add-dislike")
+    async addDislike() {
+
     }
 }

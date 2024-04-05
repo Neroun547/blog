@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+{{>head}}
+<body>
+<div class="wrapper__main">
+    {{#if admin}}
+
+    {{else}}
+        <div class="wrapper__nav">
+            <nav>
+                <a href="/" class="wrapper__nav-main-page-link">Головна</a>
+                <a href="/gallery">Фото</a>
+            </nav>
+        </div>
+    {{/if}}
+    <div class="wrapper__content">
+        {{{ body }}}
+    </div>
+    <div class="wrapper__comments-grade" id="{{fileName}}">
+        <div class="wrapper__comments-like">
+            {{#if userAlreadySetLike}}
+                <button class="wrapper__comments-like-btn-liked">
+                    <img src="/images/like.png" alt="Like">
+                </button>
+            {{else}}
+                <button class="wrapper__comments-like-btn">
+                    <img src="/images/like.png" alt="Like">
+                </button>
+            {{/if}}
+            <span class="wrapper__comments-like-span">{{likes}}</span>
+        </div>
+        <div class="wrapper__comments-dislike">
+            <button class="wrapper__comments-dislike-btn">
+                <img src="/images/dislike.png" alt="Dislike">
+            </button>
+            <span class="wrapper__comments-dislike-span">{{dislikes}}</span>
+        </div>
+    </div>
+    <footer class="footer">
+        <span>www.gosha.app</span>
+    </footer>
+</div>
+{{#each scripts}}
+    <script src="{{this}}" type="module"></script>
+{{/each}}
+</body>
+</html>
