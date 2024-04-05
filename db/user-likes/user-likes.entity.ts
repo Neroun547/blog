@@ -1,4 +1,5 @@
-import {Entity, PrimaryKey, Property} from "@mikro-orm/core";
+import {Entity, ManyToOne, PrimaryKey, Property} from "@mikro-orm/core";
+import {Articles} from "../articles/articles.entity";
 
 @Entity()
 export class UserLikes {
@@ -10,4 +11,7 @@ export class UserLikes {
 
     @Property()
     article_id: number;
+
+    @ManyToOne({ entity: () => Articles })
+    article: Articles;
 }

@@ -43,7 +43,7 @@ export class ArticlesController {
 
     @Get(":file_name")
     async getArticle(@Req() req: Request, @Param("file_name") fileName: string, @Res() res: Response) {
-        const { likes, dislikes, userAlreadySetDislike, userAlreadySetLike } = await this.articlesService.getInfoAboutLikesAndDislikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+        const { likes, dislikes, userAlreadySetDislike, userAlreadySetLike } = await this.articlesService.getInfoAboutLikesAndDislikes(fileName, this.articlesService.getUniqueKeyForLikesAndDislikes(req));
 
         res.render("articles/uploaded-articles/" + fileName, {
             styles: ["/css/articles/article.css"],
@@ -57,23 +57,31 @@ export class ArticlesController {
         });
     }
 
+    @Patch(":file_name/add-dislike")
+    async addDislike(@Req() req: Request, @Param("file_name") fileName: string) {
+        await this.articlesService.incrementDislikes(fileName, this.articlesService.getUniqueKeyForLikesAndDislikes(req));
+
+        return;
+    }
+
     @Patch(":file_name/add-like")
     async addLikes(@Req() req: Request, @Param("file_name") fileName: string) {
-        await this.articlesService.incrementLikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+        await this.articlesService.incrementLikes(fileName, this.articlesService.getUniqueKeyForLikesAndDislikes(req));
+
+        return;
+    }
+
+    @Delete(":file_name/remove-dislike")
+    async removeDislike(@Req() req: Request, @Param("file_name") fileName: string) {
+        await this.articlesService.decrementDislikes(fileName, this.articlesService.getUniqueKeyForLikesAndDislikes(req));
 
         return;
     }
 
     @Delete(":file_name/remove-like")
     async removeLike(@Req() req: Request, @Param("file_name") fileName: string) {
-        await this.articlesService.decrementLikes(fileName, (req.headers["user-agent"] + req.socket.remoteAddress).replace(/ /g, ""));
+        await this.articlesService.decrementLikes(fileName, this.articlesService.getUniqueKeyForLikesAndDislikes(req));
 
         return;
-    }
-
-
-    @Patch(":file_name/add-dislike")
-    async addDislike() {
-
     }
 }

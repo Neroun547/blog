@@ -45,3 +45,11 @@ iframe {
     cursor: pointer;
     border-radius: 5px;
 }
+
+.wrapper__comments-dislike-btn-disliked {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: rgba(68,127,215, 1);
+    border-radius: 5px;
+}

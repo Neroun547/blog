@@ -17,6 +17,7 @@ import {SettingsModuleDb} from "../db/settings/settings.module";
 import {GalleryModuleAdmin} from "./admin/gallery/gallery.module";
 import {Gallery} from "../db/gallery/gallery.entity";
 import { UserLikes } from "../db/user-likes/user-likes.entity";
+import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
 
 @Module({
   imports: [
@@ -30,7 +31,7 @@ import { UserLikes } from "../db/user-likes/user-likes.entity";
           port: Number(process.env.DB_PORT),
           password: process.env.DB_PASSWORD,
           type: "mysql",
-          entities: [Users, Articles, Settings, Gallery, UserLikes]
+          entities: [Users, Articles, Settings, Gallery, UserLikes, UserDislikes]
       }),
       AdminModule,
       AuthModule,

@@ -30,9 +30,15 @@
             <span class="wrapper__comments-like-span">{{likes}}</span>
         </div>
         <div class="wrapper__comments-dislike">
-            <button class="wrapper__comments-dislike-btn">
-                <img src="/images/dislike.png" alt="Dislike">
-            </button>
+            {{#if userAlreadySetDislike}}
+                <button class="wrapper__comments-dislike-btn-disliked">
+                    <img src="/images/dislike.png" alt="Dislike">
+                </button>
+            {{else}}
+                <button class="wrapper__comments-dislike-btn">
+                    <img src="/images/dislike.png" alt="Dislike">
+                </button>
+            {{/if}}
             <span class="wrapper__comments-dislike-span">{{dislikes}}</span>
         </div>
     </div>

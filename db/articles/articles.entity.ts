@@ -1,5 +1,6 @@
-import {Entity, PrimaryKey, Property} from "@mikro-orm/core";
+import {Collection, Entity, OneToMany, PrimaryKey, Property} from "@mikro-orm/core";
 import {ArticlesInterface} from "./interfaces/articles.interface";
+import {UserLikes} from "../user-likes/user-likes.entity";
 
 @Entity()
 export class Articles implements ArticlesInterface {
@@ -18,10 +19,7 @@ export class Articles implements ArticlesInterface {
     @Property()
     date: Date | string;
 
-    @Property()
-    likes: number;
-
-    @Property()
-    dislikes: number;
+    @OneToMany({ entity: () => UserLikes, mappedBy: "article" })
+    userLikes: Collection<UserLikes>;
 }
 
