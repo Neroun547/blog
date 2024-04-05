@@ -53,3 +53,13 @@ iframe {
     background-color: rgba(68,127,215, 1);
     border-radius: 5px;
 }
+
+.wrapper__comments-like img {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.wrapper__comments-dislike img {
+    width: 18px !important;
+    height: 18px !important;
+}
