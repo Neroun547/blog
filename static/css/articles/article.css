@@ -29,6 +29,10 @@ iframe {
     height: 25px;
     cursor: pointer;
     border-radius: 5px;
+    background-image: url("/images/like.png");
+    background-position: center;
+    background-size: 18px;
+    background-repeat: no-repeat;
 }
 
 .wrapper__comments-like-btn-liked {
@@ -37,6 +41,11 @@ iframe {
     cursor: pointer;
     background-color: rgba(68,127,215, 1);
     border-radius: 5px;
+    z-index: 1;
+    background-image: url("/images/like.png");
+    background-position: center;
+    background-size: 18px;
+    background-repeat: no-repeat;
 }
 
 .wrapper__comments-dislike-btn {
@@ -44,6 +53,11 @@ iframe {
     height: 25px;
     cursor: pointer;
     border-radius: 5px;
+    z-index: 1;
+    background-image: url("/images/dislike.png");
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
 }
 
 .wrapper__comments-dislike-btn-disliked {
@@ -52,14 +66,21 @@ iframe {
     cursor: pointer;
     background-color: rgba(68,127,215, 1);
     border-radius: 5px;
+    z-index: 1;
+    background-image: url("/images/dislike.png");
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
 }
 
 .wrapper__comments-like img {
     width: 18px !important;
     height: 18px !important;
+    z-index: 10;
 }
 
 .wrapper__comments-dislike img {
     width: 18px !important;
     height: 18px !important;
+    z-index: 10;
 }
