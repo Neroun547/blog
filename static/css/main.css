@@ -13,6 +13,16 @@
     margin-left: 5px;
     width: 90px;
     cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.wrapper__search button:hover {
+    background-color: #313131;
+    transition: .2s;
 }
 
 .blog-description {

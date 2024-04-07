@@ -77,6 +77,16 @@
     margin: 0 auto;
     padding: 5px;
     cursor: pointer;
+    background-color: #000;
+    transition: .2s;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.load-more-btn:hover {
+    background-color: #313131;
+    transition: .2s;
 }
 
 @media screen and (max-width: 890px) {
