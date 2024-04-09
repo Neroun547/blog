@@ -15,6 +15,14 @@
     flex: 20;
 }
 
+.wrapper__filter {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    z-index: -1;
+}
+
 .footer {
     display: flex;
     justify-content: center;

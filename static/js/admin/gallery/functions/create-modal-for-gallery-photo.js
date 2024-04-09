@@ -37,12 +37,13 @@ export function createModalForGalleryPhoto(parent, admin, imgSrc, description, d
         deletePhotoBtn.innerHTML = "Видалити";
 
         deletePhotoBtn.addEventListener("click", async function () {
+            console.log("Click")
             await fetch("/admin/gallery/" + id, {
                 method: "DELETE"
             });
 
             window.location.reload();
-        });
+        }, true);
 
         wrapperFooter.appendChild(deletePhotoBtn);
     }
@@ -51,6 +52,6 @@ export function createModalForGalleryPhoto(parent, admin, imgSrc, description, d
 
     wrapperModal.appendChild(image);
     wrapperModal.appendChild(wrapperRightSide);
-    console.log(parent, wrapperModal)
+
     parent.appendChild(wrapperModal);
 }

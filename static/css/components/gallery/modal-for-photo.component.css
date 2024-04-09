@@ -7,6 +7,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
+    z-index: 2;
 }
 
 .wrapper__modal-photo-gallery-right-side {
@@ -49,6 +50,10 @@
 }
 
 @media screen and (max-width: 1200px) {
+    .wrapper__modal-photo-gallery img {
+        width: 100%;
+        max-width: 100%;
+    }
     .wrapper__modal-photo-gallery {
         flex-direction: column;
     }
@@ -67,9 +72,6 @@
 }
 
 @media screen and (max-width: 380px) {
-    .wrapper__publications {
-        justify-items: left;
-    }
     .delete-publication-btn {
         width: 89%;
     }

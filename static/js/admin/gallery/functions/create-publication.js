@@ -7,10 +7,7 @@ export function createPublication(parent, imgSrc, id) {
 
     wrapperPublicationsItem.appendChild(wrapperPublicationItemFilter);
 
-    const img = document.createElement("img");
-    img.setAttribute("src", imgSrc);
-    img.setAttribute("alt", "Зображення");
-    img.classList.add("wrapper__publications-item-img");
+    wrapperPublicationsItem.style.backgroundImage = "url(" + imgSrc + ")";
 
     const span = document.createElement("span");
     span.classList.add("wrapper__publications-item-about-span");
@@ -19,10 +16,9 @@ export function createPublication(parent, imgSrc, id) {
     span.innerHTML = "Докладніше";
 
     wrapperPublicationsItem.appendChild(wrapperPublicationItemFilter);
-    wrapperPublicationsItem.appendChild(img);
     wrapperPublicationsItem.appendChild(span);
 
     parent.appendChild(wrapperPublicationsItem);
 
-    return { wrapperPublicationsItem: wrapperPublicationsItem, span: span, img: img, wrapperPublicationItemFilter: wrapperPublicationItemFilter };
+    return { wrapperPublicationsItem: wrapperPublicationsItem, span: span, imgSrc: imgSrc, wrapperPublicationItemFilter: wrapperPublicationItemFilter };
 }

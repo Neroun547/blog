@@ -1,8 +1,8 @@
-<div class="wrapper__publications mt-300">
+<h2 class="gallery-logo">Галерея</h2>
+<div class="wrapper__publications mt-100">
     {{#each publications}}
-        <div class="wrapper__publications-item">
+        <div class="wrapper__publications-item" style="background-image: url('/uploaded-photo/{{this.file_name}}');">
             <div class="wrapper__publication-item-filter"></div>
-            <img src="/uploaded-photo/{{this.file_name}}" alt="Зображення" class="wrapper__publications-item-img">
             <span class="wrapper__publications-item-about-span" id="{{this.id}}">Докладніше</span>
         </div>
     {{/each}}
