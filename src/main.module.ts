@@ -18,6 +18,7 @@ import {GalleryModuleAdmin} from "./admin/gallery/gallery.module";
 import {Gallery} from "../db/gallery/gallery.entity";
 import { UserLikes } from "../db/user-likes/user-likes.entity";
 import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
+import {AboutAndFeedbackModule} from "./about-and-feedback/about-and-feedback.module";
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
       SettingsModuleAdmin,
       SettingsModuleDb,
       GalleryModuleAdmin,
+      AboutAndFeedbackModule,
       RouterModule.register([
           { path: "/admin", module: AdminModule, children: [
                   { path: "auth", module: AuthModule },
@@ -55,6 +57,10 @@ import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
           {
               path: "/articles",
               module: ArticlesModule
+          },
+          {
+              path: "/about-and-feedback",
+              module: AboutAndFeedbackModule
           }
       ]),
       ArticlesModuleDb
