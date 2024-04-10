@@ -30,7 +30,7 @@ export class GalleryControllerAdmin {
 
         res.render("admin/gallery/gallery", {
             admin: true,
-            styles: ["/css/admin/gallery/gallery.css", "/css/components/gallery/modal-for-photo.component.css"],
+            styles: ["/css/admin/gallery/gallery.css", "/css/components/gallery/modal-for-photo.component.css", "/css/admin/components/upload-file-form.css"],
             scripts: ["/js/admin/gallery/gallery.js"],
             publications: publications,
             loadMore: countPublications > 10

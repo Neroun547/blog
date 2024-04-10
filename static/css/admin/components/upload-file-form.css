@@ -1,0 +1,22 @@
+.upload-file-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 60%;
+}
+
+.upload-file-form input {
+    margin-top: 20px;
+}
+
+.upload-file-form button {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.upload-file-input {
+    cursor: pointer;
+}

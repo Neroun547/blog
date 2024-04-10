@@ -1,26 +1,3 @@
-.upload-photo-form {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-top: 100px;
-    width: 60%;
-}
-
-.upload-photo-form input {
-    margin-top: 20px;
-}
-
-.upload-photo-form button {
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
-}
-
-.upload-photo-input {
-    cursor: pointer;
-}
-
 .wrapper__publications {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

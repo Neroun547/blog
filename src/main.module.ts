@@ -19,6 +19,8 @@ import {Gallery} from "../db/gallery/gallery.entity";
 import { UserLikes } from "../db/user-likes/user-likes.entity";
 import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
 import {AboutAndFeedbackModule} from "./about-and-feedback/about-and-feedback.module";
+import {MusicModule} from "./music/music.module";
+import {MusicModuleAdmin} from "./admin/music/music.module";
 
 @Module({
   imports: [
@@ -42,12 +44,15 @@ import {AboutAndFeedbackModule} from "./about-and-feedback/about-and-feedback.mo
       SettingsModuleDb,
       GalleryModuleAdmin,
       AboutAndFeedbackModule,
+      MusicModule,
+      MusicModuleAdmin,
       RouterModule.register([
           { path: "/admin", module: AdminModule, children: [
                   { path: "auth", module: AuthModule },
                   { path: "articles", module: ArticlesModuleAdmin },
                   { path: "settings", module: SettingsModuleAdmin },
-                  { path: "gallery", module: GalleryModuleAdmin }
+                  { path: "gallery", module: GalleryModuleAdmin },
+                  { path: "music", module: MusicModuleAdmin }
               ]
           },
           {
@@ -61,6 +66,10 @@ import {AboutAndFeedbackModule} from "./about-and-feedback/about-and-feedback.mo
           {
               path: "/about-and-feedback",
               module: AboutAndFeedbackModule
+          },
+          {
+              path: "/music",
+              module: MusicModule
           }
       ]),
       ArticlesModuleDb
