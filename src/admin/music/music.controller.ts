@@ -27,7 +27,7 @@ export class MusicControllerAdmin {
         res.render("admin/music/music", {
             admin: true,
             styles: ["/css/admin/components/upload-file-form.css", "/css/admin/music/music.css"],
-            scripts: ["/js/admin/music/music.js"],
+            scripts: ["/js/admin/music/music.js", "/js/admin/music/disable-multiply-audio-play.js"],
             music: await this.musicService.getMusic(10, 0)
         });
     }
