@@ -1,12 +1,16 @@
 import {Controller, Get, Res} from "@nestjs/common";
 import { Response } from "express";
+import {MusicService} from "./service/music.service";
 
 @Controller()
 export class MusicController {
+    constructor(private musicService: MusicService) {}
+
     @Get()
-    getMusicPage(@Res() res: Response) {
+    async getMusicPage(@Res() res: Response) {
         res.render("music/music", {
-            styles: ["/css/music/music.css"]
+            styles: ["/css/music/music.css"],
+            music: await this.musicService.getMusic(10, 0)
         });
     }
 }

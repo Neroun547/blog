@@ -21,6 +21,7 @@ import {UserDislikes} from "../db/user-dislikes/user-dislikes.entity";
 import {AboutAndFeedbackModule} from "./about-and-feedback/about-and-feedback.module";
 import {MusicModule} from "./music/music.module";
 import {MusicModuleAdmin} from "./admin/music/music.module";
+import {Music} from "../db/music/music.entity";
 
 @Module({
   imports: [
@@ -34,7 +35,7 @@ import {MusicModuleAdmin} from "./admin/music/music.module";
           port: Number(process.env.DB_PORT),
           password: process.env.DB_PASSWORD,
           type: "mysql",
-          entities: [Users, Articles, Settings, Gallery, UserLikes, UserDislikes]
+          entities: [Users, Articles, Settings, Gallery, UserLikes, UserDislikes, Music]
       }),
       AdminModule,
       AuthModule,

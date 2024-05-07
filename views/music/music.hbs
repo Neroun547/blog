@@ -1,3 +1,16 @@
-<h2 class="music-logo">Музика</h2>
+<h2 class="text-center">Музика</h2>
+<div class="wrapper__music">
+    {{#each music}}
+        <div class="wrapper__music-item mt-50">
+            <h3>{{this.author}} - {{this.name}}</h3>
+            <h3>Жанр: {{this.genre}}</h3>
+            <div class="wrapper__music-sub-item">
+                <audio controls class="d-block ma-auto" preload="metadata">
+                    <source src="/uploaded-music/{{this.file_name}}" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    {{/each}}
+</div>
 
 

@@ -39,3 +39,4 @@ lerna-debug.log*
 /views/articles/uploaded-articles
 
 /static/uploaded-photo
+/static/uploaded-music

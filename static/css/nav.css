@@ -22,3 +22,9 @@
     margin-right: 15px;
 }
 
+@media screen and (max-width: 500px) {
+    .wrapper__nav nav {
+        font-size: 14px;
+    }
+}
+

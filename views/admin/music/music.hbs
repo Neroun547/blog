@@ -1,6 +1,22 @@
-<form class="upload-file-form" method="POST" action="/admin/gallery/" enctype="multipart/form-data">
+<form class="upload-file-form mt-20" method="POST" action="/admin/music/" enctype="multipart/form-data">
     <input type="file" class="upload-photo-input" name="file" accept="audio/mpeg"/>
     <input type="text" placeholder="Автор композиції" name="author">
     <input type="text" placeholder="Назва композиції:" name="name">
+    <input type="text" placeholder="Жанр композиції" name="genre">
     <button type="submit">Завантажити</button>
 </form>
+<h2 class="text-center">Список композицій:</h2>
+<div class="wrapper__music">
+    {{#each music}}
+        <div class="wrapper__music-item mt-50">
+            <h3>{{this.author}} - {{this.name}}</h3>
+            <h3>Жанр: {{this.genre}}</h3>
+            <div class="wrapper__music-sub-item">
+                <audio controls class="d-block ma-auto" preload="metadata">
+                    <source src="/uploaded-music/{{this.file_name}}" type="audio/mpeg">
+                </audio>
+                <button class="delete-music-btn" id="{{this.id}}">Видалити</button>
+            </div>
+        </div>
+    {{/each}}
+</div>

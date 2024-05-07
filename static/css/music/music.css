@@ -1,3 +1,24 @@
-.music-logo {
-    text-align: center;
+.wrapper__music-item audio {
+    width: 100%;
+    margin: 0;
+}
+
+.wrapper__music-item {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.wrapper__music-sub-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper__music-item {
+        width: 80%;
+    }
+    .wrapper__music-item h3 {
+        font-size: 16px;
+    }
 }
