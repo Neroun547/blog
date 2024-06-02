@@ -1,4 +1,4 @@
-export function createArticleFunction(id, name, theme, date, admin, fileName) {
+export function createArticleFunction(id, name, theme, date, admin, fileName, smallText) {
 
     if(admin) {
         const wrapperArticlesItem = document.createElement("div");
@@ -57,6 +57,11 @@ export function createArticleFunction(id, name, theme, date, admin, fileName) {
         const wrapperArticlesItemDate = document.createElement("h3");
         wrapperArticlesItemDate.innerHTML = "Дата публікації: " + date;
 
+        const wrapperSmallText = document.createElement("div");
+        wrapperSmallText.classList.add("wrapper__articles-item-small-text");
+
+        wrapperSmallText.innerHTML = smallText;
+
         const wrapperArticlesItemFooter = document.createElement("div");
         wrapperArticlesItemFooter.classList.add("wrapper__articles-item-footer");
 
@@ -69,6 +74,7 @@ export function createArticleFunction(id, name, theme, date, admin, fileName) {
         wrapperArticlesItem.appendChild(wrapperArticlesItemLogo);
         wrapperArticlesItem.appendChild(wrapperArticlesItemTheme);
         wrapperArticlesItem.appendChild(wrapperArticlesItemDate);
+        wrapperArticlesItem.appendChild(wrapperSmallText);
         wrapperArticlesItem.appendChild(wrapperArticlesItemFooter);
 
         return wrapperArticlesItem;

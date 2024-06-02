@@ -1,3 +1,8 @@
+iframe {
+    width: auto;
+    height: auto;
+}
+
 .wrapper__search {
     display: flex;
     justify-content: center;
@@ -40,3 +45,4 @@
 .wrapper__articles-item-small-text * {
     text-align: left !important;
 }
+

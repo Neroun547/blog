@@ -21,12 +21,12 @@ export class ArticlesController {
             const articles = await this.articlesServiceDb.getArticlesLikeNameDesc(name, take, skip);
             const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > skip + 10;
 
-            return { loadMore: loadMore, articles: articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") })) };
+            return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))) };
         }
         const articles = await this.articlesServiceDb.getArticlesDesc(take, skip);
         const loadMore = await this.articlesServiceDb.getCountArticles() > skip + 10;
 
-        return { loadMore: loadMore, articles: articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") })) };
+        return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))) };
     }
 
     @Get("by-filters")
