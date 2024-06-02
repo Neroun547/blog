@@ -5,6 +5,7 @@ const loadMoreBtn = document.querySelector(".load-more-btn");
 const wrapperSearchInput = document.querySelector(".wrapper__search-input");
 const wrapperSearchBtn = document.querySelector(".wrapper__search-btn");
 const wrapperContent = document.querySelector(".wrapper__content");
+const wrapperArticlesSmallTextItems = document.querySelectorAll(".wrapper__articles-item-small-text");
 
 let take = 10;
 let skip = 10;
@@ -75,6 +76,10 @@ wrapperSearchBtn.addEventListener("click", async function () {
     }
     skip += 10;
 });
+
+for(let i = 0; i < wrapperArticlesSmallTextItems.length; i++) {
+    wrapperArticlesSmallTextItems[i].innerHTML = wrapperArticlesSmallTextItems[i].textContent;
+}
 
 async function loadMore() {
     let api;

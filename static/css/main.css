@@ -29,3 +29,14 @@
     text-align: center;
     margin-top: 50px;
 }
+
+.wrapper__articles-item-small-text {
+    font-size: 12px !important;
+    text-align: left !important;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.wrapper__articles-item-small-text * {
+    text-align: left !important;
+}

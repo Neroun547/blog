@@ -8,6 +8,7 @@ import {UserDislikesModuleDb} from "../../db/user-dislikes/user-dislikes.module"
 @Module({
     imports: [ArticlesModuleDb, UserLikesModuleDb, UserDislikesModuleDb],
     providers: [ArticlesService],
-    controllers: [ArticlesController]
+    controllers: [ArticlesController],
+    exports: [ArticlesService]
 })
 export class ArticlesModule {}

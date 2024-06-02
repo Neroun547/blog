@@ -4,6 +4,8 @@ import {UserLikesServiceDb} from "../../../db/user-likes/user-likes.service";
 import {GetInfoAboutLikesAndDislikesInterface} from "../interfaces/get-info-about-likes-and-dislikes.interface";
 import {UserDislikesServiceDb} from "../../../db/user-dislikes/user-dislikes.service";
 import { Request } from "express";
+import {readFile} from "fs/promises";
+import {resolve} from "path";
 
 @Injectable()
 export class ArticlesService {
@@ -87,5 +89,21 @@ export class ArticlesService {
             return;
         }
         throw new BadRequestException();
+    }
+    async parseArticlesForMainPage(articles) {
+        return await Promise.all(articles.map(async el => {
+            let smallTextResult = "";
+
+            (await readFile(resolve("views/articles/uploaded-articles/" + el.file_name))).toString().substring(0, 700).split("\n")
+               .forEach((el, index) => {
+                   if(index > 2) {
+                       smallTextResult += el.trim();
+                   }
+               });
+            return {
+               ...el,
+               smallText: smallTextResult + " ..."
+           }
+        }));
     }
 }

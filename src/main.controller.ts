@@ -2,13 +2,15 @@ import {Controller, Get, Req, Res} from "@nestjs/common";
 import { Request, Response } from "express";
 import {ArticlesServiceDb} from "../db/articles/articles.service";
 import {SettingsServiceDb} from "../db/settings/settings.service";
+import {ArticlesService} from "./articles/service/articles.service";
 const moment = require("moment");
 
 @Controller()
 export class MainController {
   constructor(
       private articlesServiceDb: ArticlesServiceDb,
-      private settingsServiceDb: SettingsServiceDb
+      private settingsServiceDb: SettingsServiceDb,
+      private articlesService: ArticlesService
   ) {}
 
   @Get()
@@ -20,7 +22,7 @@ export class MainController {
     res.render("main", {
       styles: ["/css/main.css", "/css/components/articles/article.component.css", "/css/components/load-more-btn.css"],
       scripts: ["/js/main.js"],
-      articles: articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") })),
+      articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))),
       blog_description: blogDescription ? blogDescription.value : "",
       loadMore: loadMore
     });
