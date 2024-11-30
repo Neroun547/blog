@@ -35,7 +35,7 @@ export class ArticlesController {
         @Query("take", new ParseIntPipe()) take: number,
         @Query("skip", new ParseIntPipe()) skip: number
     ) {
-        const articles = await this.articlesServiceDb.getArticlesLikeNameDesc(name, take, skip);
+        const articles = await this.articlesService.parseArticlesForMainPage(await this.articlesServiceDb.getArticlesLikeNameDesc(name, take, skip));
         const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > skip + 10;
 
         return { loadMore: loadMore, articles: articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") })) };

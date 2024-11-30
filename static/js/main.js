@@ -50,7 +50,8 @@ wrapperSearchBtn.addEventListener("click", async function () {
                 response.articles[i].theme,
                 response.articles[i].date,
                 false,
-                response.articles[i].file_name
+                response.articles[i].file_name,
+                response.articles[i].smallText
             ));
         }
     }
