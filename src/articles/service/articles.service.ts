@@ -6,6 +6,7 @@ import {UserDislikesServiceDb} from "../../../db/user-dislikes/user-dislikes.ser
 import { Request } from "express";
 import {readFile} from "fs/promises";
 import {resolve} from "path";
+import * as moment from "moment";
 
 @Injectable()
 export class ArticlesService {
@@ -102,7 +103,8 @@ export class ArticlesService {
                });
             return {
                ...el,
-               smallText: smallTextResult + " ..."
+               smallText: smallTextResult + " ...",
+               date: moment(el.date).format("YYYY-MM-DD HH:mm:ss")
            }
         }));
     }

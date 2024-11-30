@@ -2,7 +2,6 @@ import {Controller, Delete, Get, Param, ParseIntPipe, Patch, Query, Req, Res} fr
 import {ArticlesServiceDb} from "../../db/articles/articles.service";
 import {Response, Request} from "express";
 import {ArticlesService} from "./service/articles.service";
-const moment = require("moment");
 
 @Controller()
 export class ArticlesController {
@@ -21,12 +20,12 @@ export class ArticlesController {
             const articles = await this.articlesServiceDb.getArticlesLikeNameDesc(name, take, skip);
             const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > skip + 10;
 
-            return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))) };
+            return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles) };
         }
         const articles = await this.articlesServiceDb.getArticlesDesc(take, skip);
         const loadMore = await this.articlesServiceDb.getCountArticles() > skip + 10;
 
-        return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))) };
+        return { loadMore: loadMore, articles: await this.articlesService.parseArticlesForMainPage(articles) };
     }
 
     @Get("by-filters")
@@ -38,7 +37,7 @@ export class ArticlesController {
         const articles = await this.articlesService.parseArticlesForMainPage(await this.articlesServiceDb.getArticlesLikeNameDesc(name, take, skip));
         const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > skip + 10;
 
-        return { loadMore: loadMore, articles: articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") })) };
+        return { loadMore: loadMore, articles: articles };
     }
 
     @Get(":file_name")
