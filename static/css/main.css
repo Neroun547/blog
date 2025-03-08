@@ -3,33 +3,6 @@ iframe {
     height: auto;
 }
 
-.wrapper__search {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.wrapper__search input {
-    max-width: 500px;
-    width: 100%;
-}
-
-.wrapper__search button {
-    margin-left: 5px;
-    width: 90px;
-    cursor: pointer;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: .2s;
-}
-
-.wrapper__search button:hover {
-    background-color: #313131;
-    transition: .2s;
-}
-
 .blog-description {
     text-align: center;
     margin-top: 50px;
@@ -45,4 +18,23 @@ iframe {
 .wrapper__articles-item-small-text * {
     text-align: left !important;
 }
+
+.articles-not-found-logo {
+    font-size: 18px;
+}
+
+.wrapper__search-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper__search-mobile {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+
 

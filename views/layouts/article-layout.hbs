@@ -6,14 +6,24 @@
     {{#if admin}}
 
     {{else}}
-        <div class="wrapper__nav">
-            <nav>
-                <a href="/" class="wrapper__nav-main-page-link">Головна</a>
-                <a href="/gallery">Фото</a>
-                <a href="/about-and-feedback">Контакти</a>
-                <a href="/music">Музика</a>
-            </nav>
+      <nav>
+        <div class="nav-wrapper grey darken-3">
+          <a href="/" class="blog-logo">gosha.app</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li id="nav-main-link"><a href="/">Головна</a></li>
+            <li id="nav-gallery-link"><a href="/gallery">Фото</a></li>
+            <li id="nav-music-link"><a href="/music">Музика</a></li>
+            <li id="nav-contacts-link"><a href="/about-and-feedback">Контакти</a></li>
+          </ul>
         </div>
+      </nav>
+      <ul id="slide-out" class="sidenav">
+        <li id="nav-main-link"><a href="/">Головна</a></li>
+        <li id="nav-gallery-link"><a href="/gallery">Фото</a></li>
+        <li id="nav-music-link"><a href="/music">Музика</a></li>
+        <li id="nav-contacts-link"><a href="/about-and-feedback">Контакти</a></li>
+      </ul>
+      <a href="#" data-target="slide-out" class="black-text sidenav-trigger"><i class="material-icons">menu</i></a>
     {{/if}}
     <div class="wrapper__content">
         {{{ body }}}

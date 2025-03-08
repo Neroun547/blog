@@ -1,3 +1,7 @@
+.sidenav-trigger {
+    display: none;
+}
+
 .wrapper__nav {
     display: flex;
     justify-content: center;
@@ -22,9 +26,40 @@
     margin-right: 15px;
 }
 
-@media screen and (max-width: 500px) {
-    .wrapper__nav nav {
-        font-size: 14px;
+.blog-logo {
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+.wrapper__search {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 30%;
+}
+
+.wrapper__search input {
+    font-size: 18px;
+}
+
+.wrapper__search-btn {
+    cursor: pointer;
+    display: block;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper__search {
+        display: none;
+    }
+    .sidenav-trigger {
+        display: block;
     }
 }
 

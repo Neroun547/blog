@@ -1,16 +1,21 @@
-<h2 class="text-center">Музика</h2>
-<div class="wrapper__music">
+{{#if music}}
+  <h2 class="page-logo">Музика</h2>
+  <div class="wrapper__music">
     {{#each music}}
-        <div class="wrapper__music-item mt-50">
-            <h3>{{this.author}} - {{this.name}}</h3>
-            <h3>Жанр: {{this.genre}}</h3>
-            <div class="wrapper__music-sub-item">
-                <audio controls class="d-block ma-auto wrapper__music-sub-item-audio" preload="metadata">
-                    <source src="/uploaded-music/{{this.file_name}}" type="audio/mpeg">
-                </audio>
-            </div>
+      <div class="wrapper__music-item mt-50">
+        <h3>{{this.author}} - {{this.name}}</h3>
+        <h3>Жанр: {{this.genre}}</h3>
+        <div class="wrapper__music-sub-item">
+          <audio controls class="d-block ma-auto wrapper__music-sub-item-audio" preload="metadata">
+            <source src="/uploaded-music/{{this.file_name}}" type="audio/mpeg">
+          </audio>
         </div>
+      </div>
     {{/each}}
-</div>
+  </div>
+{{else}}
+  <h2 class="no-publications-logo">Музики поки що немає :(</h2>
+{{/if}}
+
 
 

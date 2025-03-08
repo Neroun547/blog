@@ -1,6 +1,4 @@
-export function createArticleFunction(id, name, theme, date, admin, fileName, smallText) {
-
-    if(admin) {
+export function createArticleFunction(id, name, theme, date, fileName, smallText) {
         const wrapperArticlesItem = document.createElement("div");
         wrapperArticlesItem.classList.add("wrapper__articles-item");
         wrapperArticlesItem.classList.add("mt-20");
@@ -42,41 +40,4 @@ export function createArticleFunction(id, name, theme, date, admin, fileName, sm
         wrapperArticlesItem.appendChild(wrapperArticlesItemFooter);
 
         return wrapperArticlesItem;
-    } else {
-        console.log(fileName)
-        const wrapperArticlesItem = document.createElement("div");
-        wrapperArticlesItem.classList.add("wrapper__articles-item");
-        wrapperArticlesItem.classList.add("mt-20");
-
-        const wrapperArticlesItemLogo = document.createElement("h2");
-        wrapperArticlesItemLogo.innerHTML = "Назва: " + name;
-
-        const wrapperArticlesItemTheme = document.createElement("h3");
-        wrapperArticlesItemTheme.innerHTML = "Тема: " + theme;
-
-        const wrapperArticlesItemDate = document.createElement("h3");
-        wrapperArticlesItemDate.innerHTML = "Дата публікації: " + date;
-
-        const wrapperSmallText = document.createElement("div");
-        wrapperSmallText.classList.add("wrapper__articles-item-small-text");
-
-        wrapperSmallText.innerHTML = smallText;
-
-        const wrapperArticlesItemFooter = document.createElement("div");
-        wrapperArticlesItemFooter.classList.add("wrapper__articles-item-footer");
-
-        const readLink = document.createElement("a");
-        readLink.setAttribute("href", "/articles/" + fileName);
-        readLink.innerHTML = "Читати";
-
-        wrapperArticlesItemFooter.appendChild(readLink);
-
-        wrapperArticlesItem.appendChild(wrapperArticlesItemLogo);
-        wrapperArticlesItem.appendChild(wrapperArticlesItemTheme);
-        wrapperArticlesItem.appendChild(wrapperArticlesItemDate);
-        wrapperArticlesItem.appendChild(wrapperSmallText);
-        wrapperArticlesItem.appendChild(wrapperArticlesItemFooter);
-
-        return wrapperArticlesItem;
-    }
 }

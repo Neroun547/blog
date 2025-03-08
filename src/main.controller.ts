@@ -20,8 +20,8 @@ export class MainController {
     const loadMore = (await this.articlesServiceDb.getCountArticles()) > 10;
 
     res.render("main", {
-      styles: ["/css/main.css", "/css/components/articles/article.component.css", "/css/components/load-more-btn.css"],
-      scripts: ["/js/main.js"],
+      styles: ["/css/main.css"],
+      scripts: ["/js/main.js", "/js/root.js"],
       articles: await this.articlesService.parseArticlesForMainPage(articles.map(el => ({ ...el, date: moment(el.date).format("YYYY-MM-DD HH:mm:ss") }))),
       blog_description: blogDescription ? blogDescription.value : "",
       loadMore: loadMore

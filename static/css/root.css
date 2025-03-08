@@ -2,6 +2,14 @@
     font-family: "Roboto", sans-serif;
 }
 
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
 .wrapper__main {
     display: flex;
     flex-direction: column;
@@ -29,9 +37,33 @@
     align-items: center;
     flex: 1;
     color: #fff;
-    background-color: #000;
+    background-color: #424242 !important;
     min-height: 50px;
     max-height: 50px;
+}
+
+.f-size-22 {
+    font-size: 22px !important;
+}
+
+.ma-auto {
+    margin: 0 auto;
+}
+
+.pa-10 {
+    padding: 10px;
+}
+
+.pa-2 {
+    padding: 2px;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.ml-10 {
+    margin-left: 10px;
 }
 
 .mt-50 {
@@ -54,10 +86,30 @@
     display: block;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .ma-auto {
     margin: 0 auto;
 }
 
 .text-center {
     text-align: center;
+}
+
+.no-publications-logo {
+    font-size: 24px;
+    text-align: center;
+}
+
+.page-logo {
+    text-align: center;
+    font-size: 28px;
+}
+
+@media screen and (max-width: 992px) {
+    .page-logo {
+        font-size: 20px;
+    }
 }

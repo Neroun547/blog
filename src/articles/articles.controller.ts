@@ -47,7 +47,7 @@ export class ArticlesController {
         res.render("articles/uploaded-articles/" + fileName, {
             styles: ["/css/articles/article.css"],
             layout: "article-layout",
-            scripts: ["/js/articles/article.js"],
+            scripts: ["/js/articles/article.js", "/js/root.js"],
             fileName: fileName,
             likes: likes,
             dislikes: dislikes,

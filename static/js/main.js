@@ -1,4 +1,4 @@
-import { createArticleFunction } from "./admin/articles/functions/create-article.function.js";
+import { createArticleFunction } from "./articles/functions/create-article.function.js";
 
 const wrapperArticles = document.querySelector(".wrapper__articles");
 const loadMoreBtn = document.querySelector(".load-more-btn");
@@ -6,6 +6,9 @@ const wrapperSearchInput = document.querySelector(".wrapper__search-input");
 const wrapperSearchBtn = document.querySelector(".wrapper__search-btn");
 const wrapperContent = document.querySelector(".wrapper__content");
 const wrapperArticlesSmallTextItems = document.querySelectorAll(".wrapper__articles-item-small-text");
+const wrapperArticlesRow = wrapperArticles.querySelector(".row");
+
+document.getElementById("nav-main-link").classList.add("active");
 
 let take = 10;
 let skip = 10;
@@ -43,17 +46,7 @@ wrapperSearchBtn.addEventListener("click", async function () {
         if(document.querySelector(".articles-not-found-logo")) {
             document.querySelector(".articles-not-found-logo").remove();
         }
-        for (let i = 0; i < response.articles.length; i++) {
-            wrapperArticles.appendChild(createArticleFunction(
-                response.articles[i].id,
-                response.articles[i].name,
-                response.articles[i].theme,
-                response.articles[i].date,
-                false,
-                response.articles[i].file_name,
-                response.articles[i].smallText
-            ));
-        }
+        displayCards(response.articles);
     }
     if(!response.loadMore) {
 
@@ -62,12 +55,7 @@ wrapperSearchBtn.addEventListener("click", async function () {
         }
     } else {
         if(!document.querySelector(".load-more-btn")) {
-            const loadMoreBtn = document.createElement("button");
-            loadMoreBtn.classList.add("load-more-btn");
-            loadMoreBtn.classList.add("mt-50");
-            loadMoreBtn.classList.add("mb-50");
-
-            loadMoreBtn.innerHTML = "Завантажити більше";
+            const loadMoreBtn = createLoadMoreButton();
 
             loadMoreBtn.addEventListener("click", async function () {
                 await loadMore();
@@ -94,19 +82,32 @@ async function loadMore() {
 
     skip += 10;
 
-    for(let i = 0; i < response.articles.length; i++) {
-        wrapperArticles.appendChild(createArticleFunction(
-            response.articles[i].id,
-            response.articles[i].name,
-            response.articles[i].theme,
-            response.articles[i].date,
-            false,
-            response.articles[i].file_name,
-            response.articles[i].smallText
-        ));
-    }
+    displayCards(response.articles);
+
     if(!response.loadMore) {
         document.querySelector(".load-more-btn").remove();
+    }
+}
+
+function createLoadMoreButton() {
+    const button = document.createElement("button");
+    button.className = "btn grey darken-3 load-more-btn d-block ma-auto mt-50 mb-50";
+
+    button.innerHTML = 'Завантажити більше <i class="material-icons right">autorenew</i>';
+
+    return button;
+}
+
+function displayCards(articles) {
+    for(let i = 0; i < articles.length; i++) {
+        wrapperArticlesRow.appendChild(createArticleFunction(
+          articles[i].id,
+          articles[i].name,
+          articles[i].theme,
+          articles[i].date,
+          articles[i].file_name,
+          articles[i].smallText
+        ));
     }
 }
 

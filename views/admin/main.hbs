@@ -1,14 +1,54 @@
-<div class="wrapper__modules">
-    <a href="/admin/articles/">Статті</a>
-    <a href="/admin/gallery">Фотографії</a>
-    <a href="/admin/music">Музика</a>
-    <a href="/admin/exit" class="exit-btn-link">
-        <button class="exit-btn">Вийти</button>
-    </a>
-</div>
-<h2 class="edit-blog-description-form-logo">Редагувати опис блогу:</h2>
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td>
+      Статті
+    </td>
+    <td>
+      <a href="/admin/articles/" class="d-block">
+        <button class="btn grey darken-3 d-block ml-auto">
+          <i class="material-icons">edit</i>
+        </button>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Фотографії
+    </td>
+    <td>
+      <a href="/admin/gallery" class="d-block">
+        <button class="btn grey darken-3 d-block ml-auto">
+          <i class="material-icons">edit</i>
+        </button>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Музика
+    </td>
+    <td>
+      <a href="/admin/music" class="d-block">
+        <button class="btn grey darken-3 size-small d-block ml-auto">
+          <i class="material-icons">edit</i>
+        </button>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2 class="page-logo">Редагувати опис блогу:</h2>
 <form action="/admin/settings/save-blog-description" method="POST" class="edit-blog-description-form">
     <input type="text" placeholder="Опис блогу:" name="description" value="{{blog_description}}" required>
-    <button>Зберегти</button>
+    <button class="btn grey darken-3">Зберегти</button>
 </form>
 

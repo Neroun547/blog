@@ -2,19 +2,33 @@
 <html lang="en">
     {{>head}}
 <body>
-    <div class="wrapper__filter"></div>
     <div class="wrapper__main">
         {{#if admin}}
 
         {{else}}
-            <div class="wrapper__nav">
-                <nav>
-                    <a href="/" class="wrapper__nav-main-page-link">Головна</a>
-                    <a href="/gallery">Фото</a>
-                    <a href="/music">Музика</a>
-                    <a href="/about-and-feedback">Контакти</a>
-                </nav>
+          <nav>
+            <div class="nav-wrapper grey darken-3">
+              <a href="/" class="blog-logo">gosha.app</a>
+              <div class="wrapper__search">
+                <input type="text" placeholder="Пошук статті за назвою:" class="wrapper__search-input white-text">
+
+                <i class="material-icons wrapper__search-btn-icon wrapper__search-btn">search</i>
+              </div>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li id="nav-main-link"><a href="/">Головна</a></li>
+                <li id="nav-gallery-link"><a href="/gallery">Фото</a></li>
+                <li id="nav-music-link"><a href="/music">Музика</a></li>
+                <li id="nav-contacts-link"><a href="/about-and-feedback">Контакти</a></li>
+              </ul>
             </div>
+          </nav>
+          <ul id="slide-out" class="sidenav grey darken-3">
+            <li id="nav-main-link"><a href="/" class="white-text f-size-22 mt-20">Головна</a></li>
+            <li id="nav-gallery-link"><a href="/gallery" class="white-text f-size-22 mt-20">Фото</a></li>
+            <li id="nav-music-link"><a href="/music" class="white-text f-size-22 mt-20">Музика</a></li>
+            <li id="nav-contacts-link"><a href="/about-and-feedback" class="white-text f-size-22 mt-20">Контакти</a></li>
+          </ul>
+          <a href="#" data-target="slide-out" class="black-text sidenav-trigger"><i class="material-icons">menu</i></a>
         {{/if}}
         <div class="wrapper__content">
             {{{ body }}}

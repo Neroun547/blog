@@ -10,7 +10,7 @@ export class MusicController {
     async getMusicPage(@Res() res: Response) {
         res.render("music/music", {
             styles: ["/css/music/music.css"],
-            scripts: ["/js/admin/music/disable-multiply-audio-play.js"],
+            scripts: ["/js/admin/music/disable-multiply-audio-play.js", "/js/music/music.js"],
             music: await this.musicService.getMusic(10, 0)
         });
     }

@@ -14,7 +14,7 @@ export class GalleryController {
 
         res.render("gallery/gallery", {
             publications: publications,
-            styles: ["/css/admin/gallery/gallery.css", "/css/components/gallery/modal-for-photo.component.css"],
+            styles: [],
             scripts: ["/js/gallery/gallery.js"],
             loadMore: countPublications > 10
         });

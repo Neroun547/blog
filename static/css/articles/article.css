@@ -8,6 +8,14 @@ iframe {
     height: auto;
 }
 
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
 .wrapper__comments-grade {
     display: flex;
     justify-content: space-between;

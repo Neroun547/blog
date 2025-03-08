@@ -1,108 +1,43 @@
-import { createModalForGalleryPhoto } from "../admin/gallery/functions/create-modal-for-gallery-photo.js";
 import { createPublication } from "../admin/gallery/functions/create-publication.js";
 
-const wrapperPublicationsItems = document.querySelectorAll(".wrapper__publications-item");
-const wrapperPublicationsItemSpan = document.querySelectorAll(".wrapper__publications-item-about-span");
-const wrapperContent = document.querySelector(".wrapper__content");
 const loadMoreBtn = document.querySelector(".load-more-btn");
 const wrapperPublications = document.querySelector(".wrapper__publications");
-const wrapperFilter = document.querySelector(".wrapper__filter");
-
-let modalActive = false;
+const modalTriggers = document.querySelectorAll(".modal-trigger");
 
 let take = 10;
 let skip = 10;
 
-for(let i = 0; i < wrapperPublicationsItems.length; i++) {
-    wrapperPublicationsItems[i].addEventListener("mousemove", function () {
+document.getElementById("nav-gallery-link").classList.add("active");
 
-        if(!modalActive) {
-            wrapperPublicationsItems[i].querySelector(".wrapper__publications-item-about-span").style.display = "block";
-            wrapperPublicationsItems[i].querySelector(".wrapper__publication-item-filter").style.display = "block";
-        }
-    });
-    wrapperPublicationsItems[i].addEventListener("mouseleave", function () {
-        wrapperPublicationsItems[i].querySelector(".wrapper__publications-item-about-span").style.display = "none";
-        wrapperPublicationsItems[i].querySelector(".wrapper__publication-item-filter").style.display = "none";
-    });
-}
-
-window.addEventListener("click", function (e) {
-
-    if(modalActive) {
-        document.querySelector(".wrapper__modal-photo-gallery").remove();
-        wrapperFilter.style.zIndex = "-1";
-        wrapperFilter.style.backgroundColor = "transparent";
-        modalActive = false;
-        hideAllWrapperItemFilters();
-        e.stopPropagation();
-    }
-}, true);
-
-for(let i = 0; i < wrapperPublicationsItemSpan.length; i++) {
-    wrapperPublicationsItems[i].addEventListener("click", async function () {
-
-        if(!modalActive) {
-            const id = wrapperPublicationsItemSpan[i].getAttribute("id");
-
-            const api = await fetch("/gallery/" + id);
-            const response = await api.json();
-            const imgSrc = "/uploaded-photo/" + response.file_name;
-
-            modalActive = true;
-
-            createModalForGalleryPhoto(wrapperContent, false, imgSrc, response.description, response.date, response.id);
-
-            wrapperFilter.style.zIndex = "1";
-            wrapperFilter.style.backgroundColor = "rgba(0, 0, 0, 0.53)";
-
-            window.scrollTo(0, 0);
-
-            wrapperPublicationsItems[i].querySelector(".wrapper__publications-item-about-span").style.display = "none";
-        }
-    });
-}
-
-loadMoreBtn.addEventListener("click", async function () {
-    const api = await fetch(`/gallery/load-more?take=${take}&skip=${skip}`);
-    const response = await api.json();
-
-    for(let i = 0; i < response.publications.length; i++) {
-        const { wrapperPublicationsItem, span, imgSrc, wrapperPublicationItemFilter } = createPublication(wrapperPublications, "/uploaded-photo/" + response.publications[i].file_name, response.publications[i].id);
-
-        wrapperPublicationsItem.addEventListener("click", async function () {
-
-            if(!modalActive) {
-                modalActive = true;
-                createModalForGalleryPhoto(wrapperContent, false, imgSrc, response.publications[i].description, response.publications[i].date, response.publications[i].id);
-
-                wrapperFilter.style.zIndex = "1";
-                wrapperFilter.style.backgroundColor = "rgba(0, 0, 0, 0.53)";
-
-                window.scrollTo(0, 0);
-
-                span.style.display = "none";
-            }
-        });
-        wrapperPublicationsItem.addEventListener("mousemove", function () {
-            span.style.display = "block";
-            wrapperPublicationItemFilter.style.display = "block";
-        });
-        wrapperPublicationsItem.addEventListener("mouseleave", function () {
-            span.style.display = "none";
-            wrapperPublicationItemFilter.style.display = "none";
-        });
-    }
-    if(!response.loadMore) {
-        loadMoreBtn.remove();
-    }
-    skip += 10;
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, null);
 });
 
-function hideAllWrapperItemFilters() {
-    const wrapperItemsFilters = document.querySelectorAll(".wrapper__publication-item-filter");
+for(let i = 0; i < modalTriggers.length; i++) {
+    modalTriggers[i].addEventListener("click", function (e) {
+        const img = modalTriggers[i].querySelector("img");
+        const description = modalTriggers[i].querySelector(".image-description");
 
-    for(let i = 0; i < wrapperItemsFilters.length; i++) {
-        wrapperItemsFilters[i].style.display = "none";
-    }
+        document.getElementById("modal-image-image").setAttribute("src", img.getAttribute("src"));
+        document.getElementById("modal-image-description").innerHTML = description.innerHTML;
+    });
+}
+
+
+if(loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", async function () {
+        const api = await fetch(`/gallery/load-more?take=${take}&skip=${skip}`);
+        const response = await api.json();
+
+        for(let i = 0; i < response.publications.length; i++) {
+            const { wrapperPublicationsItem, span, imgSrc, wrapperPublicationItemFilter } = createPublication(wrapperPublications, "/uploaded-photo/" + response.publications[i].file_name, response.publications[i].id);
+
+
+        }
+        if(!response.loadMore) {
+            loadMoreBtn.remove();
+        }
+        skip += 10;
+    });
 }

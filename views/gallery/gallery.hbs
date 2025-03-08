@@ -1,11 +1,39 @@
-<h2 class="gallery-logo">Галерея</h2>
+{{#if publications}}
+  <h2 class="page-logo">Галерея</h2>
+{{/if}}
+<!-- Modal Structure -->
+<div id="modal-image" class="modal">
+  <div class="modal-content">
+    <div class="card">
+      <div class="card-image">
+        <img src="" id="modal-image-image">
+      </div>
+    </div>
+    <p id="modal-image-description"></p>
+  </div>
+</div>
+
 <div class="wrapper__publications mt-100">
-    {{#each publications}}
-        <div class="wrapper__publications-item" style="background-image: url('/uploaded-photo/{{this.file_name}}');">
-            <div class="wrapper__publication-item-filter"></div>
-            <span class="wrapper__publications-item-about-span" id="{{this.id}}">Докладніше</span>
-        </div>
-    {{/each}}
+    {{#if publications}}
+      <div class="row">
+        {{#each publications}}
+          <div class="col s12 m6 l3 modal-trigger" data-target="modal-image">
+            <div class="card pa-2">
+              <div class="card-image">
+                <img src="/uploaded-photo/{{this.file_name}}">
+              </div>
+              {{#if this.description}}
+                <div class="card-content">
+                  <p class="image-description">{{this.description}}</p>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <h2 class="no-publications-logo mt-50">Немає фото :(</h2>
+    {{/if}}
 </div>
 
 {{#if loadMore}}

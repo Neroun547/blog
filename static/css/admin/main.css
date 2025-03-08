@@ -42,10 +42,12 @@
     max-width: 800px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .edit-blog-description-form button {
     width: 20%;
+    margin-left: 20px;
 }
 
 .edit-blog-description-form input {
@@ -60,3 +62,4 @@
     background-color: #fff !important;
     width: min-content !important;
 }
+
