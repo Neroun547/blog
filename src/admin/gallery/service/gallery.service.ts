@@ -25,7 +25,8 @@ export class GalleryServiceAdmin {
         const publication = await this.galleryServiceDb.getPublicationById(id);
 
         if(existsSync(resolve("static/uploaded-photo/" + publication.file_name))) {
-            unlink(resolve("static/uploaded-photo/" + publication.file_name));
+            unlink(resolve("static/uploaded-photo/" + publication.file_name))
+              .catch((e) => console.log("Delete image error:", e));
         }
         await this.galleryServiceDb.deletePublicationById(id);
     }

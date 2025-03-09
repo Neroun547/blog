@@ -1,8 +1,11 @@
-export function createPublication(fileName, description) {
+export function createPublication(fileName, description, id) {
     const div = document.createElement("div");
     div.className = "col s12 m6 l3 modal-trigger";
     div.setAttribute("data-target", "modal-image");
-
+    console.log(id)
+    if(id) {
+        div.setAttribute("id", id);
+    }
     const card = document.createElement("div");
     card.className = "card pa-2";
 

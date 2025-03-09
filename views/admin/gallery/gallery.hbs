@@ -10,6 +10,7 @@
       </div>
     </div>
     <p id="modal-image-description"></p>
+    <button class="btn red darken-3 modal-delete-button"><i class="materialize-icon">delete</i></button>
   </div>
 </div>
 
@@ -17,7 +18,7 @@
   {{#if publications}}
     <div class="row">
       {{#each publications}}
-        <div class="col s12 m6 l3 modal-trigger" data-target="modal-image">
+        <div class="col s12 m6 l3 modal-trigger" data-target="modal-image" id="{{this.id}}">
           <div class="card pa-2">
             <div class="card-image">
               <img src="/uploaded-photo/{{this.file_name}}">
