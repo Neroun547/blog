@@ -3,7 +3,7 @@
     <input type="text" placeholder="Автор композиції" name="author">
     <input type="text" placeholder="Назва композиції:" name="name">
     <input type="text" placeholder="Жанр композиції" name="genre">
-    <button type="submit">Завантажити</button>
+    <button type="submit" class="btn grey darken-3">Завантажити</button>
 </form>
 <h2 class="text-center">Список композицій:</h2>
 <div class="wrapper__music">
@@ -15,7 +15,7 @@
                 <audio controls class="d-block ma-auto wrapper__music-sub-item-audio" preload="metadata">
                     <source src="/uploaded-music/{{this.file_name}}" type="audio/mpeg">
                 </audio>
-                <button class="delete-music-btn" id="{{this.id}}">Видалити</button>
+                <button class="delete-music-btn btn red darken-3" id="{{this.id}}"><i class="material-icons">delete</i></button>
             </div>
         </div>
     {{/each}}

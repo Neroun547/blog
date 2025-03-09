@@ -14,11 +14,3 @@
     align-items: end;
 }
 
-.wrapper__music-item button {
-    background-color: darkred;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    height: 40px;
-    cursor: pointer;
-}

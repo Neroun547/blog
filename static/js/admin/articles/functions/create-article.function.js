@@ -27,9 +27,9 @@ export function createArticleFunction(id, name, theme, date, fileName, smallText
 
             deleteArticleBtn.parentElement.parentElement.remove();
         });
-        deleteArticleBtn.classList.add("delete-article-btn");
+        deleteArticleBtn.className = "delete-article-btn btn red darken-3";
         deleteArticleBtn.setAttribute("id", id);
-        deleteArticleBtn.innerHTML = "Видалити";
+        deleteArticleBtn.innerHTML = "<i class='material-icons'>delete</i>";
 
         wrapperArticlesItemFooter.appendChild(editLink);
         wrapperArticlesItemFooter.appendChild(deleteArticleBtn);

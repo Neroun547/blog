@@ -10,15 +10,6 @@
     cursor: pointer;
 }
 
-.delete-article-btn {
-    background-color: darkred;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
-
 .wrapper__articles-item-footer {
     display: flex;
     justify-content: space-between;
