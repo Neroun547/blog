@@ -1,24 +1,32 @@
-export function createPublication(parent, imgSrc, id) {
-    const wrapperPublicationsItem = document.createElement("div");
-    wrapperPublicationsItem.classList.add("wrapper__publications-item");
+export function createPublication(fileName, description) {
+    const div = document.createElement("div");
+    div.className = "col s12 m6 l3 modal-trigger";
+    div.setAttribute("data-target", "modal-image");
 
-    const wrapperPublicationItemFilter = document.createElement("div");
-    wrapperPublicationItemFilter.classList.add("wrapper__publication-item-filter");
+    const card = document.createElement("div");
+    card.className = "card pa-2";
 
-    wrapperPublicationsItem.appendChild(wrapperPublicationItemFilter);
+    const cardImage = document.createElement("div");
+    cardImage.className = "card-image";
 
-    wrapperPublicationsItem.style.backgroundImage = "url(" + imgSrc + ")";
+    const img = document.createElement("img");
+    img.src = `/uploaded-photo/${fileName}`;
 
-    const span = document.createElement("span");
-    span.classList.add("wrapper__publications-item-about-span");
-    span.setAttribute("id", id);
+    cardImage.appendChild(img);
+    card.appendChild(cardImage);
 
-    span.innerHTML = "Докладніше";
+    if (description) {
+        const cardContent = document.createElement("div");
+        cardContent.className = "card-content";
 
-    wrapperPublicationsItem.appendChild(wrapperPublicationItemFilter);
-    wrapperPublicationsItem.appendChild(span);
+        const p = document.createElement("p");
+        p.className = "image-description";
+        p.textContent = description;
 
-    parent.appendChild(wrapperPublicationsItem);
+        cardContent.appendChild(p);
+        card.appendChild(cardContent);
+    }
 
-    return { wrapperPublicationsItem: wrapperPublicationsItem, span: span, imgSrc: imgSrc, wrapperPublicationItemFilter: wrapperPublicationItemFilter };
+    div.appendChild(card);
+    return div;
 }

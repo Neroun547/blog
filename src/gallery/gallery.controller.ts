@@ -14,7 +14,7 @@ export class GalleryController {
 
         res.render("gallery/gallery", {
             publications: publications,
-            styles: [],
+            styles: ["/css/gallery/gallery.css"],
             scripts: ["/js/gallery/gallery.js", "/js/root.js", "/js/search-articles.js"],
             loadMore: countPublications > 10
         });
