@@ -1,29 +1,37 @@
-<h2 class="page-logo">{{blog_description}}</h2>
+{{#if blog_description}}
+  <h2 class="page-logo">{{blog_description}}</h2>
+{{/if}}
 <h2 class="page-logo bold mt-50">Публікації</h2>
 <div class="wrapper__search-mobile">
-  <input type="text" placeholder="Пошук статті за назвою:" class="wrapper__search-input white-text">
+  <input type="text" placeholder="Пошук статті за назвою:" class="wrapper__search-input-mobile">
 
-  <i class="material-icons wrapper__search-btn-icon wrapper__search-btn">search</i>
+  <i class="material-icons wrapper__search-btn-icon wrapper__search-btn-mobile">search</i>
 </div>
-<div class="wrapper__articles mt-50 mb-50">
-  <div class="row">
-    {{#each articles}}
-      <div class="col s12 m12 l4 wrapper__articles-item">
-        <div class="card pa-10">
-          <div class="card-title">Назва: {{this.name}}</div>
-          <div class="mt-20">Тема: {{this.theme}}</div>
-          <div class="mt-20">Дата публікації: {{this.date}}</div>
-          <div class="mt-20 wrapper__articles-item-small-text">
-            <p>{{this.smallText}}</p>
-          </div>
-          <div class="card-action">
-            <a href="/articles/{{this.file_name}}" class="grey-text text-darken-3">Читати</a>
+
+  <div class="wrapper__articles mt-50 mb-50">
+    <div class="row">
+    {{#if articles}}
+      {{#each articles}}
+        <div class="col s12 m12 l4 wrapper__articles-item">
+          <div class="card pa-10">
+            <div class="card-title">Назва: {{this.name}}</div>
+            <div class="mt-20">Тема: {{this.theme}}</div>
+            <div class="mt-20">Дата публікації: {{this.date}}</div>
+            <div class="mt-20 wrapper__articles-item-small-text">
+              <p>{{this.smallText}}</p>
+            </div>
+            <div class="card-action">
+              <a href="/articles/{{this.file_name}}" class="grey-text text-darken-3">Читати</a>
+            </div>
           </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    {{else}}
+        <h2 class="articles-not-found-logo">Статей не знайдено :(</h2>
+    {{/if}}
+    </div>
   </div>
-</div>
+
 {{#if loadMore}}
     <button class="btn grey darken-3 load-more-btn d-block ma-auto mt-50 mb-50">Завантажити більше
       <i class="material-icons right">autorenew</i>

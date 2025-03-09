@@ -2,12 +2,14 @@ import {Controller, Delete, Get, Param, ParseIntPipe, Patch, Query, Req, Res} fr
 import {ArticlesServiceDb} from "../../db/articles/articles.service";
 import {Response, Request} from "express";
 import {ArticlesService} from "./service/articles.service";
+import { SettingsServiceDb } from '../../db/settings/settings.service';
 
 @Controller()
 export class ArticlesController {
     constructor(
         private articlesServiceDb: ArticlesServiceDb,
-        private articlesService: ArticlesService
+        private articlesService: ArticlesService,
+        private settingsServiceDb: SettingsServiceDb
     ) {}
 
     @Get("load-more")
@@ -38,6 +40,19 @@ export class ArticlesController {
         const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > skip + 10;
 
         return { loadMore: loadMore, articles: articles };
+    }
+
+    @Get("search-by-name-page")
+    async getArticlesByNamePage(@Query("name") name: string, @Res() res: Response) {
+        const articles = await this.articlesService.parseArticlesForMainPage(await this.articlesServiceDb.getArticlesLikeNameDesc(name, 10, 0));
+        const loadMore = await this.articlesServiceDb.getCountArticlesLikeName(name) > 10;
+
+        res.render("main", {
+            styles: ["/css/main.css"],
+            scripts: ["/js/main.js", "/js/root.js"],
+            articles: await this.articlesService.parseArticlesForMainPage(articles),
+            loadMore: loadMore
+        });
     }
 
     @Get(":file_name")

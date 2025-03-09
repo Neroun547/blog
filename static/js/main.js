@@ -2,17 +2,32 @@ import { createArticleFunction } from "./articles/functions/create-article.funct
 
 const wrapperArticles = document.querySelector(".wrapper__articles");
 const loadMoreBtn = document.querySelector(".load-more-btn");
-const wrapperSearchInput = document.querySelector(".wrapper__search-input");
-const wrapperSearchBtn = document.querySelector(".wrapper__search-btn");
+let wrapperSearchInput;
+let wrapperSearchBtn;
 const wrapperContent = document.querySelector(".wrapper__content");
 const wrapperArticlesSmallTextItems = document.querySelectorAll(".wrapper__articles-item-small-text");
 const wrapperArticlesRow = wrapperArticles.querySelector(".row");
 
-document.getElementById("nav-main-link").classList.add("active");
+if(window.screen.width <= 992) {
+    wrapperSearchBtn =  document.querySelector(".wrapper__search-btn-mobile");
+    wrapperSearchInput =  document.querySelector(".wrapper__search-input-mobile");
+} else {
+    wrapperSearchBtn =  document.querySelector(".wrapper__search-btn");
+    wrapperSearchInput =  document.querySelector(".wrapper__search-input");
+}
+if(window.location.pathname === "/") {
+    document.getElementById("nav-main-link").classList.add("active");
+}
 
 let take = 10;
 let skip = 10;
 let filtersName = "";
+const parsedUrl = new URL(window.location.href);
+
+
+if(parsedUrl.search) {
+    filtersName = parsedUrl.search.replace("?name=", "");
+}
 
 if(loadMoreBtn) {
     loadMoreBtn.addEventListener("click", async function () {
