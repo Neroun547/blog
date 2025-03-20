@@ -14,6 +14,12 @@
   </div>
 </div>
 
+<form class="upload-file-form mb-50" method="POST" action="/admin/gallery/" enctype="multipart/form-data">
+  <input type="file" class="upload-file-input" name="file" accept="image/png, image/jpeg, image/png"/>
+  <input type="text" placeholder="Опис:" name="description">
+  <button type="submit" class="btn grey darken-3 waves-light">Завантажити</button>
+</form>
+
 <div class="wrapper__publications mt-100">
   {{#if publications}}
     <div class="row">
